@@ -5,7 +5,7 @@ const links: string[] = ["About", "Projects", "Contact"];
 export default function Header() {
   return (
     <>
-      <div className=" flex justify-center items-center mt-[20px]">
+      <div className=" flex justify-center items-center mt-[20px]" data-aos="fade-up">
         <header
           className="header__container bc py-4 p-[30px] rounded-[10px] bg-[#0C0E23]  shadow-md"
         >
