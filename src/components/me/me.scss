@@ -1,3 +1,340 @@
+.me {
+  margin-top: 50px;
+  padding: 1.5rem 0;
+
+  // Центрируем контейнер и задаём max-width
+  > div {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px;
+  }
+
+  &__title-block {
+    margin-bottom: 30px;
+
+    span {
+      display: block;
+    }
+
+    .me__title {
+      font-weight: 700;
+      color: #f8fafc;
+      font-size: 50px;
+      line-height: 1.1;
+      margin: 8px 0;
+    }
+
+    span {
+      font-size: 21px;
+      color: #90a1b9;
+
+      &:last-child {
+        color: #615fff;
+        font-size: 23px;
+        margin-top: 4px;
+      }
+    }
+  }
+
+  &__link {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    span {
+      color: #90a1b9;
+      font-size: 16px;
+      font-family: monospace;
+    }
+
+    .me__title {
+      font-family: monospace;
+      font-size: 18px;
+
+      span {
+        &.text-\[\#615FFF\] {
+          color: #615fff;
+        }
+        &.text-\[\#00D5BE\] {
+          color: #00d5be;
+        }
+      }
+
+      a {
+        text-decoration: none;
+
+        .ghlink {
+          color: #ffa1ad;
+          font-style: normal;
+        }
+      }
+    }
+  }
+
+  .about__me {
+    margin-top: 30px;
+    color: #90a1b9;
+    font-size: 15px;
+    white-space: pre-wrap;
+
+    .typewriter {
+      display: block;
+      font-family: monospace;
+      line-height: 1.4;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap; // чтобы не ломалось на маленьких экранах
+      justify-content: space-between;
+    }
+
+    .card {
+      background-color: #0c0e23;
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      color: white;
+
+      &.card_fist {
+        height: 202px !important;
+
+        .card__title-block {
+          margin-left: 10px;
+
+          span {
+            color: #90a1b9;
+            font-size: 0.875rem;
+            margin-bottom: 8px;
+            display: block;
+          }
+
+          .card__title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #fff;
+            line-height: 1.3;
+          }
+        }
+      }
+
+      &.card__stack {
+        height: 202px;
+        padding-left: 20px;
+
+        .card__title-block {
+          margin-left: 10px;
+          gap: 7px;
+          display: flex;
+          flex-direction: column;
+
+          > div {
+            margin-bottom: 5px;
+          }
+
+          .block {
+            color: #ffffff;
+            font-size: 26px;
+            margin-bottom: 8px;
+          }
+
+          span {
+            color: #90a1b9;
+            font-size: 15px;
+          }
+        }
+      }
+    }
+
+    .cardFull {
+      background-color: #0c0e23;
+      border-radius: 10px;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      margin-top: 10px;
+      color: white;
+
+      &__title {
+        font-weight: 700;
+        font-size: 24px;
+        text-align: center;
+      }
+
+      button {
+        width: 240px;
+        padding: 15px;
+        background-color: #161a31;
+        border-radius: 10px;
+        cursor: pointer;
+        color: white;
+        border: none;
+        font-size: 16px;
+
+        &:hover {
+          background-color: #27306f;
+        }
+      }
+    }
+  }
+}
+
+// --- Медиазапросы для адаптивности ---
+
+// Мобильные (до 480px)
+@media (max-width: 480px) {
+  .me {
+    &__title-block {
+      .me__title {
+        font-size: 32px;
+      }
+
+      span {
+        font-size: 16px !important;
+      }
+    }
+
+    &__link {
+      .me__title {
+        font-size: 14px;
+        word-break: break-word;
+      }
+    }
+
+    .about__me {
+      .typewriter {
+        font-size: 13px;
+      }
+    }
+
+    &__card {
+      .row {
+        flex-direction: column;
+      }
+
+      .card {
+        height: auto !important;
+        width: 100% !important;
+        padding: 15px;
+      }
+
+      .cardFull {
+        padding: 20px;
+        button {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+// Планшеты (481px — 768px)
+@media (min-width: 481px) and (max-width: 768px) {
+  .me {
+    &__title-block {
+      .me__title {
+        font-size: 40px;
+      }
+
+      span {
+        font-size: 18px !important;
+      }
+    }
+
+    &__link {
+      .me__title {
+        font-size: 16px;
+      }
+    }
+
+    .about__me {
+      .typewriter {
+        font-size: 14px;
+      }
+    }
+
+    &__card {
+      .row {
+        flex-wrap: wrap;
+      }
+
+      .card {
+        flex-basis: 100%;
+        height: auto !important;
+        padding: 20px;
+      }
+
+      .cardFull {
+        padding: 30px;
+        button {
+          width: 200px;
+        }
+      }
+    }
+  }
+}
+
+// Десктоп (от 769px)
+@media (min-width: 769px) {
+  .me {
+    &__title-block {
+      .me__title {
+        font-size: 50px;
+      }
+
+      span {
+        font-size: initial !important;
+      }
+    }
+
+    &__link {
+      .me__title {
+        font-size: 18px;
+      }
+    }
+
+    .about__me {
+      .typewriter {
+        font-size: 15px;
+      }
+    }
+
+    &__card {
+      .row {
+        flex-wrap: nowrap;
+      }
+
+      .card {
+        height: 202px;
+        padding: 20px;
+      }
+
+      .cardFull {
+        padding: 40px;
+        button {
+          width: 240px;
+        }
+      }
+    }
+  }
+}
+
+
 .ghlink {
   border-bottom: 1px solid #ffa1ad;
 }
@@ -19,7 +356,7 @@
 }
 
 .card_fist {
-  height: 202px;
+  height: 202px !important;
   background-image: url("./image.png");
   background-repeat: no-repeat;
   background-position: right bottom;

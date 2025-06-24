@@ -30,7 +30,7 @@ export default function Me() {
 
   return (
     <section className="me mt-[50px] py-6">
-      <div className="max-w-screen-2xl mx-auto px-3 flex-col">
+      <div className=" mx-auto flex-col">
         <div className="me__title-block" data-aos="fade-up">
           <span className="text-[#90A1B9] text-[21px]">Hi all. I am</span>
           <div className="me__title text-[#F8FAFC] text-[50px]">
@@ -66,12 +66,12 @@ export default function Me() {
           className="about__me mt-[30px] text-[#90A1B9] text-[15px] whitespace-pre-wrap"
           data-aos="fade-up"
         >
-          <span className="typewriter">{text}</span>
+          <span className="typewriter block h-fit">{text}</span>
         </div>
 
-        <div className="me__card">
+        <div className="mt-[40px] me__card" data-aos="fade-up">
           <div className="row flex items-center  gap-[10px] ">
-            <div className="card card_fist bg-[#0C0E23] rounded-[10px] h-[202px] p-[20px] flex items-center">
+            <div data-aos="fade-up" className="card card_fist bg-[#0C0E23] rounded-[10px] h-[202px] p-[20px] flex items-center">
               <div className="card__title-block ml-[10px]">
                 <span className="block text-[#90A1B9] text-sm mb-2">
                   The Inside Scoop
@@ -81,7 +81,7 @@ export default function Me() {
                 </div>
               </div>
             </div>
-            <div className="card card__stack w-[100%] bg-[#0C0E23] rounded-[10px] h-[202px] p-[20px] flex items-center">
+            <div data-aos="fade-up" className="card card__stack w-[100%] bg-[#0C0E23] rounded-[10px] h-[202px] p-[20px] flex items-center">
               <div className="card__title-block flex flex-col ml-[10px] gap-[7px]">
                 <div className="flex flex-col">
                   <div className="block text-[#FFFFFF] text-[26px] mb-2">
@@ -495,6 +495,12 @@ export default function Me() {
                 </div>
               </div>
             </div>
+          </div>
+          <div data-aos="fade-up" className="cardFull flex flex-col items-center p-[40px] gap-[14px] bg-[#0C0E23] rounded-[10px] mt-[10px]">
+            <div className="cardFull_title font-bold text-[24px] text-center">
+              Do you want to start a project <br /> together?
+            </div>
+            <button className="p-[15px] w-[240px] cursor-pointer bg-[#161A31] rounded-[10px]">Contact me</button>
           </div>
         </div>
       </div>
