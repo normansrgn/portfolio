@@ -83,7 +83,7 @@
     .typewriter {
       display: block;
       font-family: monospace;
-      line-height: 1.4;
+      line-height: 2.2;
       overflow-wrap: break-word;
       word-break: break-word;
     }
@@ -194,6 +194,10 @@
   }
 }
 
+
+.about__text {
+  line-height: 2.2rem;
+}
 // --- Медиазапросы для адаптивности ---
 
 // Мобильные (до 480px)

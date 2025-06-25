@@ -3,33 +3,49 @@
 import { useEffect, useState } from "react";
 import "./me.scss";
 
-const fullText = `/**
+const fullTextDesktop = `/**
  * About me
- * I have 5 years of experience in web development lorem ipsum dolor sit
- * amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
- * et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
- * ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
- * in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
- * Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.
+ * I'm a Frontend Developer. 
+ * A self-taught frontend developer with over 3 years of industry experience.
+ * I build dynamic and responsive web applications that balance user needs and business goals, ensuring both functionality and a seamless user experience.
  */`;
+
+const fullTextMobile = `About me
+I'm a Frontend Developer. 
+A self-taught frontend developer with over 3 years of industry experience.
+I build dynamic and responsive web applications that balance user needs and business goals, ensuring both functionality and a seamless user experience.`;
 
 export default function Me() {
   const [text, setText] = useState("");
+  const [isMobile, setIsMobile] = useState(false);
 
+  // Следим за шириной экрана
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 640); // Tailwind breakpoint: sm
+    };
+
+    handleResize(); // сразу определить при загрузке
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Анимация печати текста
   useEffect(() => {
     let index = 0;
-    const interval = setInterval(() => {
-      setText(fullText.slice(0, index));
-      index++;
+    const selectedText = isMobile ? fullTextMobile : fullTextDesktop;
 
-      if (index > fullText.length) clearInterval(interval);
+    const interval = setInterval(() => {
+      setText(selectedText.slice(0, index));
+      index++;
+      if (index > selectedText.length) clearInterval(interval);
     }, 20);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isMobile]);
 
   return (
-    <section className="me mt-[50px] py-6">
+    <section id="about" className="me mt-[50px] py-6">
       <div className=" mx-auto flex-col">
         <div className="me__title-block" data-aos="fade-up">
           <span className="text-[#90A1B9] text-[21px]">Hi all. I am</span>
@@ -66,7 +82,7 @@ export default function Me() {
           className="about__me mt-[30px] text-[#90A1B9] text-[15px] whitespace-pre-wrap"
           data-aos="fade-up"
         >
-          <span className="typewriter block h-fit">{text}</span>
+          <span className="about__text typewriter block h-fit ">{text}</span>
         </div>
 
         <div className="mt-[40px] me__card" data-aos="fade-up">
@@ -92,7 +108,7 @@ export default function Me() {
                   </span>
                 </div>
 
-                <div className="urls flex gap-[10px]">
+                <div className="urls flex gap-[10px] flex-wrap">
                   <svg
                     width="51"
                     height="51"

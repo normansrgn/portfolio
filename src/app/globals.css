@@ -17,6 +17,10 @@
   }
 }
 
+html {
+  scroll-behavior: smooth !important;
+}
+
 body {
   background: #000319;
   color: var(--foreground);

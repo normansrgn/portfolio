@@ -1,4 +1,4 @@
-import img1 from "./image.png";
+import img1 from "./1.png";
 
 export const cards = [
   {

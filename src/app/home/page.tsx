@@ -1,5 +1,6 @@
 import Me from "@/components/me/me";
 import Projects from "@/components/Projects/Projects";
+import Workexperiens from "@/components/workexperiens/Workexperiens";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
         <div className="grid grid-cols-1 gap-12">
           <Me />
           <Projects />
+          <Workexperiens />
         </div>
       </div>
     </main>

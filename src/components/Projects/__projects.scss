@@ -1,0 +1,112 @@
+.projects {
+  margin-top: 159px;
+  margin-bottom: 100px;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 90px;
+  }
+
+  &__card {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+  }
+
+  &__about_prod {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    & span {
+      color: #9857d3;
+      font-size: 16px;
+    }
+
+    & h1 {
+      color: #ccd6f6;
+      font-size: 43px;
+    }
+
+    & p {
+      cursor: pointer;
+      width: 699px;
+      padding: 26px 30px;
+      border-radius: 14px;
+      font-size: 18px;
+      line-height: 1.6em;
+      backdrop-filter: blur(80px);
+      background: radial-gradient(
+        183.33% 127.28% at 15% 21%,
+        rgba(105, 59, 147, 0.2),
+        rgba(110, 191, 244, 0.04) 77.083%,
+        rgba(70, 144, 213, 0) 100%
+      );
+      transition: 0.5s ease-in-out;
+    }
+  }
+
+  &__prewe {
+    & img {
+      cursor: pointer;
+      border-radius: 10px; /* Закругленные углы (по желанию) */
+      max-width: 100%;
+      transition: box-shadow 0.3s ease-in-out !important; /* Плавный переход при наведении */
+      &:hover {
+        box-shadow: 0 0 26px 1px rgb(80 39 134);
+        // transition: box-shadow 0.3s ease-in-out; /* Плавный переход при наведении */
+      }
+    }
+  }
+}
+
+.projects__about_prod p.hovered {
+  transform: translateX(-40px);
+  box-shadow: 0 0 26px 1px rgb(80 39 134);
+}
+
+.projects__card.second-card .projects__about_prod p.hovered {
+  transform: translateX(40px);
+}
+
+.second_card {
+  flex-direction: row-reverse;
+}
+@media (max-width: 1364px) {
+  .projects__prewe img {
+    width: 750px;
+  }
+  .projects__card {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 788px) {
+  .projects__about_prod p {
+    width: auto;
+  }
+
+  .projects {
+    margin-top: 80px;
+  }
+}
+
+@media (max-width: 1383px) {
+  .projects__about_prod p {
+    cursor: default !important;
+    transition: none !important;
+  }
+
+  .projects__about_prod p.hovered {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .projects__about_prod p {
+    font-size: 15px;
+  }
+}
