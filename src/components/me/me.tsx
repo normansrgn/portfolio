@@ -54,7 +54,7 @@ export default function Me() {
   }, [isMobile]);
 
   return (
-    <section id="about" className="me mt-[50px] py-6">
+    <section id="about" className="me  py-6">
       <div className="mx-auto flex-col">
         <div className="me__title-block" data-aos="fade-up">
           <span className="text-[#90A1B9] text-[21px]">Hi all. I am</span>
@@ -62,7 +62,7 @@ export default function Me() {
           <span className="text-[#615FFF] text-[23px]">&gt; Front-end developer</span>
         </div>
 
-        <div className="me__link mt-[40px] flex flex-col gap-[10px]" data-aos="fade-up">
+        <div className="me__link mt-[15px] flex flex-col gap-[10px]" data-aos="fade-up">
           <span className="text-[#90A1B9]">// find my profile on Github:</span>
           <div className="me__title">
             <span className="text-[#615FFF]">const</span>{" "}
