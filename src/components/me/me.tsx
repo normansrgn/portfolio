@@ -28,18 +28,16 @@ export default function Me() {
   const [text, setText] = useState("");
   const [isMobile, setIsMobile] = useState(false);
 
-  // Следим за шириной экрана
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 640); // Tailwind breakpoint: sm
+      setIsMobile(window.innerWidth <= 640); // Tailwind breakpoint sm
     };
 
-    handleResize(); // сразу определить при загрузке
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Анимация печати текста
   useEffect(() => {
     let index = 0;
     const selectedText = isMobile ? fullTextMobile : fullTextDesktop;
@@ -54,56 +52,65 @@ export default function Me() {
   }, [isMobile]);
 
   return (
-    <section id="about" className="me  py-6">
-      <div className="mx-auto flex-col">
-        <div className="me__title-block" data-aos="fade-up">
-          <span className="text-[#90A1B9] text-[21px]">Hi all. I am</span>
-          <div className="me__title text-[#F8FAFC] text-[50px]">Vardan Sargsyan</div>
-          <span className="text-[#615FFF] text-[23px]">&gt; Front-end developer</span>
+    <section id="about" className="me py-6 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex-col max-w-screen-xl">
+        <div className="me__title-block text-start sm:text-left" data-aos="fade-up">
+          <span className="text-[#90A1B9] text-[18px] sm:text-[21px]">Hi all. I am</span>
+          <div className="me__title text-[#F8FAFC] text-[32px] sm:text-[50px] leading-tight">
+            Vardan Sargsyan
+          </div>
+          <span className="text-[#615FFF] text-[20px] sm:text-[23px] block mt-1">
+            &gt; Front-end developer
+          </span>
         </div>
 
         <div className="me__link mt-[15px] flex flex-col gap-[10px]" data-aos="fade-up">
-          <span className="text-[#90A1B9]">// find my profile on Github:</span>
-          <div className="me__title">
+          <span className="text-[#90A1B9] text-sm sm:text-base">// find my profile on Github:</span>
+          <div className="me__title break-words text-sm sm:text-base">
             <span className="text-[#615FFF]">const</span>{" "}
             <span className="text-[#00D5BE]">githubLink =</span>{" "}
-            <a href="https://github.com/normansrgn" target="_blank" rel="noreferrer">
+            <a
+              href="https://github.com/normansrgn"
+              target="_blank"
+              rel="noreferrer"
+            >
               <span className="ghlink text-[#FFA1AD]">"https://github.com/normansrgn"</span>
             </a>
           </div>
         </div>
 
         <div
-          className="about__me mt-[30px] text-[#90A1B9] text-[15px] whitespace-pre-wrap"
+          className="about__me mt-[30px] text-[#90A1B9] text-[14px] sm:text-[15px] whitespace-pre-wrap"
           data-aos="fade-up"
         >
           <span className="about__text typewriter block h-fit">{text}</span>
         </div>
 
         <div className="mt-[40px] me__card" data-aos="fade-up">
-          <div className="row flex items-center gap-[10px]">
+          <div className="row flex flex-col lg:flex-row items-center gap-[10px]">
             <div
               data-aos="fade-up"
-              className="card card_fist bg-[#0C0E23] rounded-[10px] h-[202px] p-[20px] flex items-center"
+              className="card card_fist bg-[#0C0E23] rounded-[10px] h-auto sm:h-[202px] p-[20px] flex items-center w-full"
             >
               <div className="card__title-block ml-[10px]">
                 <span className="block text-[#90A1B9] text-sm mb-2">The Inside Scoop</span>
-                <div className="card__title text-white text-lg font-semibold">
+                <div className="card__title text-white text-base sm:text-lg font-semibold">
                   Currently building a <br /> JS Animation library
                 </div>
               </div>
             </div>
+
             <div
               data-aos="fade-up"
-              className="card card__stack w-[100%] bg-[#0C0E23] rounded-[10px] h-[202px] p-[20px] flex items-center"
+              className="card card__stack w-full bg-[#0C0E23] rounded-[10px] h-auto sm:h-[202px] p-[20px] flex items-center"
             >
-              <div className="card__title-block flex flex-col ml-[10px] gap-[7px]">
+              <div className="card__title-block flex flex-col ml-[10px] gap-[7px] w-full">
                 <div className="flex flex-col">
-                  <div className="block text-[#FFFFFF] text-[26px] mb-2">My tech stack</div>
-                  <span className="text-[#90A1B9]">I constantly try to improve</span>
+                  <div className="block text-[#FFFFFF] text-[20px] sm:text-[26px] mb-2">My tech stack</div>
+                  <span className="text-[#90A1B9] text-sm sm:text-base">I constantly try to improve</span>
                 </div>
 
-                <div className="urls flex gap-[10px] flex-wrap">
+                <div className="urls flex gap-[10px] flex-wrap mt-2">
                   <Image alt="react" src={react} />
                   <Image alt="typescript" src={ts} />
                   <Image alt="tailwind" src={tailwind} />
@@ -115,14 +122,15 @@ export default function Me() {
               </div>
             </div>
           </div>
+
           <div
             data-aos="fade-up"
-            className="cardFull flex flex-col items-center p-[40px] gap-[14px] bg-[#0C0E23] rounded-[10px] mt-[10px]"
+            className="cardFull flex flex-col items-center text-center p-[30px] sm:p-[40px] gap-[14px] bg-[#0C0E23] rounded-[10px] mt-[10px]"
           >
-            <div className="cardFull_title font-bold text-[24px] text-center">
+            <div className="cardFull_title font-bold text-[20px] sm:text-[24px]">
               Do you want to start a project <br /> together?
             </div>
-            <button className="p-[15px] w-[240px] cursor-pointer bg-[#161A31] rounded-[10px]">
+            <button className="p-[12px] sm:p-[15px] w-[200px] sm:w-[240px] cursor-pointer bg-[#161A31] rounded-[10px]">
               Contact me
             </button>
           </div>

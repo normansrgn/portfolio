@@ -9,6 +9,7 @@ import { useEffect } from 'react';
 
 import Header from "@/components/Header/header";
 import "./globals.css";
+import Footer from '@/components/Footer/footer';
 
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -25,6 +26,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
 
         <main style={{ minHeight: "70vh", padding: 20 }}>{children}</main>
+
+        <Footer />
       </body>
     </html>
   );

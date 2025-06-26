@@ -3,12 +3,10 @@
 import React, { Component } from "react";
 import "./__projects.scss";
 import { projects } from "./data";
-
 import ProjectCard from "./Project";
 
 export default class Projects extends Component {
   componentDidMount() {
-
     window.addEventListener("scroll", this.handleScroll);
     window.addEventListener("resize", this.handleScroll);
     this.handleScroll();
@@ -44,14 +42,20 @@ export default class Projects extends Component {
 
   render() {
     return (
-      <section id="projects" className="projects py-10 px-4">
+      <section id="projects" className="projects py-10 px-4 sm:px-6 lg:px-8">
         <div className="projects__container max-w-6xl mx-auto">
-           <h1 data-aos="fade-up" className="font-bold text-[28px] sm:text-3xl text-center mb-10 px-2">
-        A small selection of recent projects
-      </h1>
-          {projects.map((project, index) => (
-            <ProjectCard key={index} index={index} {...project} />
-          ))}
+          <h1
+            data-aos="fade-up"
+            className="font-bold text-[24px] sm:text-3xl text-center mb-10"
+          >
+            A small selection of recent projects
+          </h1>
+
+          <div className="grid grid-cols-1 gap-10">
+            {projects.map((project, index) => (
+              <ProjectCard key={index} index={index} {...project} />
+            ))}
+          </div>
         </div>
       </section>
     );
