@@ -1,17 +1,23 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 type ProjectCardProps = {
   title: string;
   disc: string;
   url: string;
-  img: string;
+  img: StaticImageData;  // <- изменено на StaticImageData
   index: number;
 };
 
-export default function ProjectCard({ title, disc, url, img, index }: ProjectCardProps) {
+export default function ProjectCard({
+  title,
+  disc,
+  url,
+  img,
+  index,
+}: ProjectCardProps) {
   const isReverse = index % 2 !== 0;
 
   const ref = useRef<HTMLDivElement>(null);
@@ -22,7 +28,7 @@ export default function ProjectCard({ title, disc, url, img, index }: ProjectCar
       ([entry]) => {
         if (entry.isIntersecting) {
           setVisible(true);
-          observer.disconnect(); // отключаем после первого появления
+          observer.disconnect();
         }
       },
       { threshold: 0.3 }
@@ -52,7 +58,9 @@ export default function ProjectCard({ title, disc, url, img, index }: ProjectCar
             : "opacity-0 -translate-x-20"
         }`}
       >
-        <h1 className="project__title text-[#ccd6f6] text-[30px] md:text-[40px] font-bold">{title}</h1>
+        <h1 className="project__title text-[#ccd6f6] text-[30px] md:text-[40px] font-bold">
+          {title}
+        </h1>
         <p
           className={`project__disc text-[#e2e8f0] text-[14px] p-6 rounded-[14px] backdrop-blur-lg leading-relaxed transition-all duration-500 bg-[radial-gradient(ellipse_at_15%_21%,rgba(105,59,147,0.2),rgba(110,191,244,0.04)_77%,rgba(70,144,213,0)_100%)]
           hover:shadow-[0_0_26px_1px_rgb(80,39,134)] ${

@@ -3,7 +3,6 @@
 import React, { Component } from "react";
 import "./__projects.scss";
 import { projects } from "./data";
-import "aos/dist/aos.css";
 
 import ProjectCard from "./Project";
 
